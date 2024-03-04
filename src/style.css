@@ -51,15 +51,13 @@ main {
   color: #272142;
   font-size: 38px;
   line-height: 48px;
-  
 }
 
 .weather-details{
   color: rgba(39, 33, 64, 0.4);
   font-weight: 500;
   font-size: 16px;
-  line-height: 22px;
-
+  line-height: 24px;
 }
 
 strong {
@@ -68,6 +66,24 @@ strong {
 
 .temperature{
   display: flex;
+}
+
+.temp-icon{
+  font-size: 44px;
+  margin-top: 18px;
+}
+
+.temp-value {
+  color: #212121;
+  font-size: 88px;
+  font-weight: bold;
+  line-height: 88px;
+  margin-left: 5px
+}
+
+.temp-unit {
+  font-size: 28px;
+  margin-top: 6px;
 }
 
 a{
