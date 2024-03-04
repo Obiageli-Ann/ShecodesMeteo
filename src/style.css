@@ -1,5 +1,6 @@
-body{
+body {
   background-color: #f9f7fe;
+  font-family: "Roboto", sans-serif;
 }
 
 .app-container {
@@ -9,5 +10,4 @@ body{
   margin: 45px auto;
   padding: 30px;
   width: 600px;
-  
 }
