@@ -3,45 +3,59 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=, initial-scale=1.0" />
-    <link rel="stylesheet" href="src/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="src/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
     <title>Live Weather App</title>
   </head>
   <body>
     <div class="app-container">
-    <header>
-      <form>
-        <input type="search" placeholder="Enter a city..." required class="form-input"/>
-        <input type="submit" value="Search" class="form-button" />
-      </form>
-    </header>
-    <main>
-      <div>
-      <h1>
-        Paris
-      </h1>
-      <div>
-      <p>Monday 13:42, clear sky
-        <br>
-         Humidity: 56%, Wind: 4.63km/h</p>
-      </div>
-      </div>
-      <div>
-        🌥️11°C
-      </div>
-    </main>
-    <footer>
-      This Project was coded by
-      <a href="https://github.com/Obiageli-Ann/" target="_blank">Ann Oby</a>
-      open sourced on
-      <a href="https://github.com/Obiageli-Ann/ShecodesMeteo" target="_blank"
-        >GitHub</a
-      >
-      hosted on
-      <a href="https://myshecodesmeteo.onrender.com" target="_blank">Render</a>
-    </footer>
+      <header>
+        <form>
+          <input
+            type="search"
+            placeholder="Enter a city..."
+            required
+            class="form-input"
+          />
+          <input type="submit" value="Search" class="form-button" />
+        </form>
+      </header>
+      <main>
+        <div class="weather-update">
+          <div>
+          <h1 class="weather-city">
+            Paris
+          </h1>
+          <p class="weather-details">
+              Monday 13:42, clear sky
+              <br />
+              Humidity: <strong>56%</strong>, Wind: <strong>4.63km/h</strong>
+          </p>
+        </div>
+        <div class="temperature">
+            <div class="temp-icon">🌥️</div>
+            <div class="temp-value">11</div>
+            <div class="temp-unit">°C</div>
+          </div>
+          </div>
+      </main>
+      <footer>
+        This Project was coded by
+        <a href="https://github.com/Obiageli-Ann/" target="_blank">Ann Oby</a>
+        open sourced on
+        <a href="https://github.com/Obiageli-Ann/ShecodesMeteo" target="_blank">
+          GitHub
+        </a>
+        hosted on
+        <a href="https://myshecodesmeteo.onrender.com" target="_blank">
+          Render
+        </a>
+      </footer>
     </div>
   </body>
 </html>
