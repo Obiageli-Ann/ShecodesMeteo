@@ -4,6 +4,7 @@ function tempUpdate(response) {
   let descritionElement = document.querySelector("#description");
   let humidityElement = document.querySelector("#humidity");
   let windSpeedElement = document.querySelector("#windSpeed");
+  let iconElement = document.querySelector("#icon");
   let timeElement = document.querySelector("#time");
   let date = new Date(response.data.time * 1000);
 
@@ -12,8 +13,10 @@ function tempUpdate(response) {
   descritionElement.innerHTML = response.data.condition.description;
   humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
   windSpeedElement.innerHTML = `${response.data.wind.speed}km/h`;
+  
   let temperature = response.data.temperature.current;
   temperatureElement.innerHTML = Math.round(temperature);
+  iconElement.innerHTML = `<img src=${response.data.condition.icon_url} alt="Weather Icon" class="temp-icon" />`;
 }
 
 function formattedDate(date) {
