@@ -96,6 +96,11 @@ strong {
   font-size: 14px;
 }
 
+.image{
+  width: 60px; 
+
+}
+
 a{
   color: #885df1;
 }

@@ -17,8 +17,15 @@ function tempUpdate(response) {
   let temperature = response.data.temperature.current;
   temperatureElement.innerHTML = Math.round(temperature);
   iconElement.innerHTML = `<img src=${response.data.condition.icon_url} alt="Weather Icon" class="temp-icon" />`;
+
+  getForecast("Lome");
 }
 
+function searchCity(city) {
+  let apiKey = "9f0940fbf3ca3obdd306d133a0041aft";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
+  axios.get(apiUrl).then(tempUpdate);
+}
 function formattedDate(date) {
   let hour = date.getHours();
   let minutes = date.getMinutes();
@@ -40,11 +47,6 @@ function formattedDate(date) {
   return `${day} ${hour}:${minutes}`;
 }
 
-function searchCity(city) {
-  let apiKey = "9f0940fbf3ca3obdd306d133a0041aft";
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
-  axios.get(apiUrl).then(tempUpdate);
-}
 
 function handleSearchSubmit(event) {
   event.preventDefault();
@@ -52,19 +54,38 @@ function handleSearchSubmit(event) {
 
   searchCity(inputForm.value);
 }
+function formatDay(timeStamp) {
+  let date = new Date (timeStamp * 1000)
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+  return days [date.getDay()];
+}
+function getForecast(city){
+    let apiKey = "9f0940fbf3ca3obdd306d133a0041aft";
+    let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}`;
+    axios.get(apiUrl).then(displayForecast);
+}
 
-function displayForecast() {   
-  let days = ["Fri", "Sat", "Sun", "Mon", "Tue"];
+function displayForecast(response) {   
   let forecastHtml =  " ";
 
-  days.forEach((day) => {
-      forecastHtml = forecastHtml + ` <div class="days">
-              <div class="date"> ${day} </div>
-              <div class="image">🌥️</div>
+  response.data.daily.forEach((day, index) => {
+    if (index < 5) {
+      
+      forecastHtml =
+        forecastHtml +
+        ` <div class="days">
+              <div class="date"> ${formatDay(day.time)} </div>
+              <div> <img src="${day.condition.icon_url}" class = "image"/>
+              </div>
               <div class="forecast-temp">
-                <span class="forecast-temp-max"><strong>19º</strong></span> <span class="forecast-temp-min">7º</span>
+                <span class="forecast-temp-max"><strong>${Math.round(
+                  day.temperature.maximum
+                )}º</strong></span> <span class="forecast-temp-min">${Math.round(
+          day.temperature.minimum
+        )}º</span>
               </div>
              </div>`;
+                }
   });        
   forecastElement = document.querySelector("#forecast");
   forecastElement.innerHTML = forecastHtml;
@@ -74,4 +95,3 @@ let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", handleSearchSubmit);
 
 searchCity("Lome");
-displayForecast ();
